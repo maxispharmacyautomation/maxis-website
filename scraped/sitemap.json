@@ -1,0 +1,175 @@
+{
+  "source": "https://www.maxispharmacyautomation.ca",
+  "scraped_at": "2026-04-18 16:13:23",
+  "total_pages": 21,
+  "pages": [
+    {
+      "url": "/",
+      "slug": "home",
+      "type": "page",
+      "status": "ok",
+      "title": "Home | Maxis Pharmacy Automation",
+      "images": 16
+    },
+    {
+      "url": "/about-us",
+      "slug": "about",
+      "type": "page",
+      "status": "ok",
+      "title": "About Us | Maxis Pharmacy Automation",
+      "images": 19
+    },
+    {
+      "url": "/demo",
+      "slug": "demo",
+      "type": "page",
+      "status": "ok",
+      "title": "Demo | Maxis Pharmacy Automation",
+      "images": 7
+    },
+    {
+      "url": "/contact",
+      "slug": "contact",
+      "type": "page",
+      "status": "ok",
+      "title": "Contact | Maxis Pharmacy Automation",
+      "images": 6
+    },
+    {
+      "url": "/product",
+      "slug": "products-index",
+      "type": "page",
+      "status": "ok",
+      "title": "Product | Maxis Pharmacy Automation",
+      "images": 19
+    },
+    {
+      "url": "/Smart-Pack",
+      "slug": "smart-pack",
+      "type": "product",
+      "status": "ok",
+      "title": "Smart Pack\u00ae | Unit Dose Packaging System",
+      "images": 20
+    },
+    {
+      "url": "/Smart-Pack-Auto",
+      "slug": "smart-pack-auto",
+      "type": "product",
+      "status": "ok",
+      "title": "Smart Pack Auto\u00ae | Automatic Unit Dose Packaging Machine",
+      "images": 21
+    },
+    {
+      "url": "/Table-Top-AdherancePackRx",
+      "slug": "tabletop-adherencepackrx",
+      "type": "product",
+      "status": "ok",
+      "title": "AdherencePackRx | Multi-Dose Packaging Machine for Pharmacies",
+      "images": 19
+    },
+    {
+      "url": "/AdherancePackRx-108",
+      "slug": "adherencepackrx-108",
+      "type": "product",
+      "status": "ok",
+      "title": "Multi-Dose Compliance Packaging Machine | AdherencePackRx 108",
+      "images": 20
+    },
+    {
+      "url": "/smart-tablet-cutter",
+      "slug": "smart-tablet-cutter",
+      "type": "product",
+      "status": "ok",
+      "title": "Smart Tablet Cutter | Maxis Pharmacy Automation",
+      "images": 15
+    },
+    {
+      "url": "/blogs",
+      "slug": "blog-index",
+      "type": "page",
+      "status": "ok",
+      "title": "Blog | Maxis Pharmacy Automation",
+      "images": 10
+    },
+    {
+      "url": "/blogs/post/Bedside-Barcoding",
+      "slug": "bedside-barcoding",
+      "type": "blog",
+      "status": "ok",
+      "title": "Bedside Barcoding | Maxis Pharmacy Automation",
+      "images": 0
+    },
+    {
+      "url": "/blogs/post/GS1-Barcodes-on-Unit-Dose-Packages-To-prevent-medical-errors",
+      "slug": "gs1-barcodes-on-unit-dose-packages-to-prevent-medical-errors",
+      "type": "blog",
+      "status": "ok",
+      "title": "GS1 Barcodes on Unit Dose Packages - To prevent medical errors | Maxis Pharmacy Automation",
+      "images": 0
+    },
+    {
+      "url": "/blogs/post/transition-of-manual-to-automated-unit-dose-packagings",
+      "slug": "transition-of-manual-to-automated-unit-dose-packagings",
+      "type": "blog",
+      "status": "ok",
+      "title": "Transition of Manual to Automated Unit Dose Packagings | Maxis Pharmacy Automation",
+      "images": 2
+    },
+    {
+      "url": "/blogs/post/labeling-of-syringes-to-increase-patient-safety",
+      "slug": "labeling-of-syringes-to-increase-patient-safety",
+      "type": "blog",
+      "status": "ok",
+      "title": "Labeling of Syringes to increase patient safety | Maxis Pharmacy Automation",
+      "images": 0
+    },
+    {
+      "url": "/blogs/post/TALLman-Lettering-feature-for-look-alike-High-Alert-drugs",
+      "slug": "tallman-lettering-feature-for-look-alike-high-alert-drugs",
+      "type": "blog",
+      "status": "ok",
+      "title": "TALLman Lettering feature for look-alike High Alert drugs | Maxis Pharmacy Automation",
+      "images": 1
+    },
+    {
+      "url": "/blogs/post/ease-of-automated-medication-packaging-in-a-covid-era",
+      "slug": "ease-of-automated-medication-packaging-in-a-covid-era",
+      "type": "blog",
+      "status": "ok",
+      "title": "Ease of Automated Medication Packaging in a Covid Era | Maxis Pharmacy Automation",
+      "images": 0
+    },
+    {
+      "url": "/blogs/post/key-benefits-of-compliance-packaging",
+      "slug": "key-benefits-of-compliance-packaging",
+      "type": "blog",
+      "status": "ok",
+      "title": "Key Benefits of Compliance Packaging | Maxis Pharmacy Automation",
+      "images": 0
+    },
+    {
+      "url": "/blogs/post/compliance-packaging",
+      "slug": "compliance-packaging",
+      "type": "blog",
+      "status": "ok",
+      "title": "Compliance Packaging | Maxis Pharmacy Automation",
+      "images": 0
+    },
+    {
+      "url": "/blogs/post/adherence-packager",
+      "slug": "adherence-packager",
+      "type": "blog",
+      "status": "ok",
+      "title": "Adherence Packager | Maxis Pharmacy Automation",
+      "images": 1
+    },
+    {
+      "url": "/blogs/post/strip-packaging-alternative-to-blister-packaging",
+      "slug": "strip-packaging-alternative-to-blister-packaging",
+      "type": "blog",
+      "status": "ok",
+      "title": "Strip Packaging : Alternative to Blister Packaging | Maxis Pharmacy Automation",
+      "images": 0
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+---
+title: "Labeling of Syringes to increase patient safety | Maxis Pharmacy Automation"
+original_url: "https://www.maxispharmacyautomation.ca/blogs/post/labeling-of-syringes-to-increase-patient-safety"
+slug: "labeling-of-syringes-to-increase-patient-safety"
+type: "blog"
+image_count: 0
+---
+# Labeling of Syringes to increase patient safety
+
+[Dona](/blogs/author/dona "Posts by Dona")
+
+07.09.24 12:34 PM  [-  Comment(s)](/blogs/post/labeling-of-syringes-to-increase-patient-safety#comments)
+
+## Labeling of Syringes to increase patient safety
+
+Studies has been going around the world to evaluate the frequency of errors in the medical field due to mislabeling of syringes and how can they reduce those errors. A recent study in Australia shows that almost 50 percent of the incidents were occurring due to syringe and drug preparation errors. Another study shows that 0.11 percent of them are anesthesia-related drug errors. some of the patients were serious and others were found in moderate unwanted effects. In this study, they contributed the bulk of these errors to mixing up syringes with the same size or solution color, while noting that muscle relaxants were frequently misused, leading to partial or full temporary paralysis of the patient and, ultimately, postoperative anxiety. [1]
+
+![](https://www.maxispharmacyautomation.ca/Codonics_2018_syringe.jpg)
+
+Syringe Labels - right drug name, right concentration, right dose, right expiry time
+
+They recommend requirements for user-applied syringe labels, including:[2]
+
+* The use of self-adhesive labels that can be applied to polyethylene syringes and can withstand isopropanol exposure
+* The printing of the drug name on the upper half of the label
+* The use of diagonal stripes when indicating a drug of opposite action
+* The provision of space to hand-write additional information, like drug concentration
+* Lower-case lettering with an initial upper-case letter
+* In certain cases, the use of upper-case letters for distinguishing parts of similar drugs names
+* Specific color specifications for each drug class
+* ![](https://www.maxispharmacyautomation.ca/image_syringe_perfusor_labels_transmed.PNG)
+
+The Joint Commission National Patient Safety Goals include a specific goal stating “Label all medications, medication containers, and other solutions on and off the sterile field in perioperative and other procedural settings.” This goal is meant to improve the safety of using medications[3]
+
+### References
+
+[1] Association of Anaesthetists: Syringe labelling – an international standard; 20 May 2003
+
+[2] International Organization for Standardization. International Standard (ISO26825): Anaesthetic and Respiratory Equipment — User-Applied Labels for Syringes Containing Drugs Used during Anaesthesia — Colours, Design and Performance. Geneva, Switzerland; 2009
+
+[3] Joint Commission National Patient Safety Goals (NPSG): Use of Syringe Labels;03.04.01
+
+[Get Started Now](javascript:;)
+
+#### Dona
+
+* [Syringe Labels](/blogs/syringe-labels)
+
+* [Syringe Label](/blogs/tag/syringe-label)

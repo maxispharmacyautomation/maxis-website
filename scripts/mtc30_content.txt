@@ -1,0 +1,125 @@
+C
+Product Name
+CRETEM MTC-30 (Multi Tablet Counter) Product
+Cassette Quantity
+30 Cassettes
+Product Structure
+Standard (30 Cassettes) & Extendable to max 90 Cassettes (2 more Extender Units)
+Product Control
+Microsoft Surface Go or Touch Panel (Window 10) Optional Device
+Communication Method
+RS422
+Medication Detection
+Infrared Photo-detection
+Medication Storage
+Cabinet type with cassettes
+Dispensing Speed
+Maximum Dispensing Speed: 290 pills / minute
+Packing
+Direct drop into cup or user’s bottle
+Dimension (W * D * H)
+808mm * 180 mm * 1,220 mm ( 31.8 inch * 7.1 inch * 48 inch) / unit
+Weight
+60 Kg   ( 132 lb)
+Power Consumption
+100W  (Max. 500W) 
+Power Supply
+220V / 60 Hz (Korea)
+/    120V / 60 Hz (USA)   /   230V-240V / 50 Hz (Europe)
+CONTACT No.
+Tel  No. :  +82-70-7123-8522,    Mobile No. :  +82-10-3452-0312 (WhatsApp Available)  
+E-mail: johnkim@cretem.co.kr
+1. CRETEM MTC-30 Product Information
+2. CRETEM MTC-30 Product Components
+Canister
+Cup
+Bottle (not included)
+FND Canister Base
+Touch Panel 
+(optional device, not included)
+Touch Panel
+Arm
+Power 
+Button
+1. It can dispense medication into a bottle or cup by receiving 
+prescription (order) in system simultaneously to enhance the pharmacy 
+efficiency. 
+※ OCS (Order Communication System) or HIS(Hospital 
+Information System) or PMS(Pharmacy Management System)  
+AP Counter (Operating SW on Touch Panel) 
+MTC-30
+2. Key Features
+1) Multi-Counter for Bottle Packing of medications at same time
+2) Control of 30 Canisters, Extendable to Max. 90 Canisters.
+3) Compact Size for Table-Top
+4) Fast-Dispensing within 30 seconds
+3. CRETEM MTC-30 Operation Process
+①Prescription (order) received from OCS / HIS / 
+PMS.
+②Put the cup into the position  /
+Send the order to MTC.
+③MTC starts multiple orders at the same time.
+(“Dispensing” displayed on touch panel) 
+④Printed out labels at the order in process.
+⑤“Wait Bottle Out” is displayed on touch panel when order is completed.
+⑥Put out each cup one by one and fill each bottle with tablets.
+⑦Order status changed to “Checked by”. Once the user confirms, 
+then it can attach the applicable label on each bottle. 
+⑧Scan the barcode of completed bottle label 
+(order number) for verification by clicking “Checked 
+By” on touch panel.
+Finally, bottle dispensing for each order is completed. 
+4. CRETEM MTC-30 Product (Max Combination) M
+MTC-30 product is semi-vial packager 
+and extendable to max. 90 cassettes. 
+And one S/W can control all,
+but, it can’t control if the machine is 
+separated. 
+5-1. MTC-30 Optional Peripheral Device & Specification
+1. Touch Panel
+-. Recommended Product: Microsoft Surface Go 2 LTE or higher
+-. Standing screen display size: 10.5 inches 
+-. Screen Resolution: 1,920*1,280 Pixels
+-. Processor: 1.1 GHz 
+-. RAM: 8 GB 
+-. Hard Drive: Minimum 64 GB
+-. Card Description: Integrated 
+-. Average Battery Life (in hours): 10 hours 
+-. Operating System: Windows 10 Professional
+-. Platform: Net Framework 3.5 
+-. Communication Device: USB to RS232C
+5-2. MTC-30 Optional Peripheral Device & Specification
+2. Barcode Scanner 
+-. Recommended Product: ZEBRA SYMBOL-DS2208
+-. Manufacturer: ZEBRA
+-. PC Interface Available: 
+1) PS/2 Method
+2) USB Method 
+3) RS232C Method (Additional Adaptor needed) 
+-. Scan type: 1D/2D, PDF417
+-. Illuminant: Aiming Pattern – Linear 624nm Amber LED 
+Illumination – 645nm Super-Red LEDs 
+-. Interface: 39 degrees(H) * 25 degrees (V) 
+-. Reading distance: 0 ~ 38.6 cm 
+5-3. MTC-30 Optional Peripheral Device & Specification
+3. Label Printer
+-. Label printer with network connection which can be
+installed for USB or Driver is recommended 
+-. Recommended Product: ZEBRA GK420E 
+-. Manufacturer: ZEBRA 
+-. Print Method: Direct Sensible Heat 
+-. Resolution: 203 dpi (Basic-8DOT) 
+-. Connection Method: USB, RS-232C (Serial), Ethernet
+-. Print Speed: Max 152 mm/sec
+-. Paper Standard: Width 19 ~ 108 mm 
+-. Outside Diameter: 127 mm 
+-. Operating Temperature: 4.4°C ~ 41°C
+-. Printing Width: Max 104mm 
+-. Memory: 8MB flash, 8MB SDRAM 
+-. Printing Length: Max 991 mm 
+- Product Size: 201(L) * 171 (W) * 152 (H) mm 
+-. Ethernet: LAN Port(RJ45) 
+-. USB: Universal Serial USB Port 
+-. Parallel: 36 Pin Parallel Port 
+-. RS232C(Serial): 9 Pin Direct Port
+THANK YOU
