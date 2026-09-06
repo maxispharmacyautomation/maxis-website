@@ -19,7 +19,7 @@ import {
   Gauge,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { products } from "@/lib/products";
+import { products, type Product } from "@/lib/products";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -30,8 +30,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = products.find((p) => p.slug === resolvedParams.slug);
   if (!product) return {};
   return {
-    title: `${product.name} | Maxis Pharmacy Automation`,
+    title: product.name,
     description: product.description,
+    openGraph: {
+      title: product.name,
+      description: product.description,
+      images: [{ url: product.heroImage, alt: `${product.name} — ${product.tagline}` }],
+    },
   };
 }
 
@@ -54,7 +59,11 @@ async function ProductDetailContent({ slug }: { slug: string }) {
   const product = products.find((p) => p.slug === slug);
   if (!product) notFound();
 
-  const relatedProducts = products.filter((p) => p.slug !== product.slug).slice(0, 3);
+  const relatedProducts: Product[] = product.relatedSlugs
+    ? product.relatedSlugs
+        .map((relatedSlug) => products.find((p) => p.slug === relatedSlug))
+        .filter((p): p is Product => Boolean(p))
+    : products.filter((p) => p.slug !== product.slug).slice(0, 3);
 
   // Parse how it works into steps
   const howItWorksSteps = product.howItWorks
@@ -132,7 +141,7 @@ async function ProductDetailContent({ slug }: { slug: string }) {
                 <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-light to-transparent opacity-40" />
                 <Image
                   src={product.heroImage}
-                  alt={product.name}
+                  alt={`${product.name} — ${product.tagline}`}
                   fill priority
                   className="object-contain p-8 group-hover:scale-105 transition-transform duration-700"
                 />
@@ -176,6 +185,48 @@ async function ProductDetailContent({ slug }: { slug: string }) {
                   <p className="text-slate-600 text-sm leading-relaxed">{step.trim()}.</p>
                 </div>
               ))}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ── SYSTEM ANATOMY ───────────────────────────────── */}
+      {product.anatomy && product.anatomy.length > 0 && (
+        <section className="py-24 bg-slate-50">
+          <Container>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+              <div className="relative">
+                <div className="text-left mb-8 lg:hidden">
+                  <div className="inline-flex items-center gap-2 text-brand font-semibold tracking-wider uppercase text-sm mb-3">
+                    <span className="w-8 h-px bg-brand" /> Overview
+                  </div>
+                  <h2 className="text-4xl font-black text-ink tracking-tight">Inside the System</h2>
+                </div>
+                <div className="relative aspect-[4/3] bg-white border border-slate-200 rounded-[2rem] overflow-hidden shadow-xl">
+                  <Image
+                    src={product.heroImage}
+                    alt={`${product.name} labeled components`}
+                    fill
+                    className="object-contain p-4"
+                  />
+                </div>
+              </div>
+              <div>
+                <div className="hidden lg:block mb-8">
+                  <div className="inline-flex items-center gap-2 text-brand font-semibold tracking-wider uppercase text-sm mb-3">
+                    <span className="w-8 h-px bg-brand" /> Overview
+                  </div>
+                  <h2 className="text-4xl md:text-5xl font-black text-ink tracking-tight">Inside the System</h2>
+                </div>
+                <div className="space-y-4">
+                  {product.anatomy.map((item) => (
+                    <div key={item.name} className="bg-white border border-slate-200 rounded-2xl p-5">
+                      <h3 className="font-bold text-ink mb-1">{item.name}</h3>
+                      <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </Container>
         </section>
@@ -259,6 +310,45 @@ async function ProductDetailContent({ slug }: { slug: string }) {
                 <h3 className="font-bold text-ink text-lg mb-4">Built-In Software</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{product.pouchSpec.softwareSummary}</p>
               </div>
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {/* ── MODEL COMPARISON ─────────────────────────────── */}
+      {product.modelTable && (
+        <section className="py-24 bg-slate-50">
+          <Container>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 text-brand font-semibold tracking-wider uppercase text-sm mb-3">
+                <span className="w-8 h-px bg-brand" /> Configurations <span className="w-8 h-px bg-brand" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-black text-ink tracking-tight">Available Models</h2>
+              <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+                Compare cassette capacity, options, and cabinet size to match your formulary and floor plan.
+              </p>
+            </div>
+            <div className="overflow-x-auto rounded-3xl border border-slate-200 shadow-sm">
+              <table className="w-full min-w-[720px] text-left border-collapse">
+                <thead>
+                  <tr className="bg-ink text-white">
+                    <th className="px-5 py-4 text-xs font-bold uppercase tracking-widest text-slate-300 whitespace-nowrap">Specification</th>
+                    {product.modelTable.models.map((model) => (
+                      <th key={model} className="px-5 py-4 text-sm font-bold whitespace-nowrap">{model}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {product.modelTable.rows.map((row) => (
+                    <tr key={row.label} className="bg-white hover:bg-slate-50 transition-colors">
+                      <th className="px-5 py-4 text-sm font-semibold text-ink whitespace-nowrap">{row.label}</th>
+                      {row.values.map((value, i) => (
+                        <td key={`${row.label}-${i}`} className="px-5 py-4 text-sm text-slate-600 tabular-nums">{value}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </Container>
         </section>
@@ -387,7 +477,7 @@ async function ProductDetailContent({ slug }: { slug: string }) {
               <Link key={p.slug} href={`/products/${p.slug}`}
                 className="group bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-brand-light hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 flex flex-col">
                 <div className="relative h-44 bg-slate-50 overflow-hidden">
-                  <Image src={p.heroImage} alt={p.name} fill className="object-contain p-6 group-hover:scale-105 transition-transform duration-700" />
+                  <Image src={p.heroImage} alt={`${p.name} — ${p.tagline}`} fill className="object-contain p-6 group-hover:scale-105 transition-transform duration-700" />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-bold text-ink text-lg mb-1 group-hover:text-brand-dark transition-colors">{p.name}</h3>
@@ -413,10 +503,16 @@ async function ProductDetailContent({ slug }: { slug: string }) {
             <Zap className="w-8 h-8 text-brand-light" />
           </div>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight leading-tight">
-            See {product.name}<br />in Action
+            {product.cta?.title ?? (
+              <>
+                See {product.name}
+                <br />
+                in Action
+              </>
+            )}
           </h2>
           <p className="text-lg text-slate-400 mb-10 leading-relaxed">
-            Our engineering team offers live remote or on-site demonstrations tailored to your pharmacy's workflow.
+            {product.cta?.description ?? "Our engineering team offers live remote or on-site demonstrations tailored to your pharmacy's workflow."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/demo"

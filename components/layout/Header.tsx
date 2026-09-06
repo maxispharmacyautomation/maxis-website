@@ -30,6 +30,11 @@ const products = [
   { name: "AdherencePackRx 108", href: "/products/adherencepackrx-108" },
   { name: "MTC30 Vial Packaging", href: "/products/cretem-mtc-30" },
   { name: "CAP52Fs", href: "/products/cap52fs" },
+  { name: "Tablet Counter", href: "/products/tablet-counter" },
+  { name: "AP MD Model", href: "/products/ap-md-model" },
+  { name: "AP Model", href: "/products/ap-model" },
+  { name: "WAP Model", href: "/products/wap-model" },
+  { name: "60MDU Prefill Station", href: "/products/60mdu-prefill-station" },
 ];
 
 const buttonPrimaryStyles = "inline-flex items-center justify-center px-5 py-2.5 bg-brand-dark text-white rounded-lg font-medium hover:bg-brand-darker transition duration-200 outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2";
@@ -70,16 +75,17 @@ export function Header() {
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:grid-cols-2">
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[560px] md:grid-cols-2">
                     {products.map((product) => (
                       <li key={product.name}>
-                        <Link href={product.href} legacyBehavior passHref>
-                          <NavigationMenuLink className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-50 hover:text-brand-dark focus:bg-slate-50 focus:text-brand-dark">
-                            <div className="text-sm font-medium leading-none">
-                              {product.name}
-                            </div>
-                          </NavigationMenuLink>
-                        </Link>
+                        <NavigationMenuLink
+                          render={<Link href={product.href} />}
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-50 hover:text-brand-dark focus:bg-slate-50 focus:text-brand-dark"
+                        >
+                          <div className="text-sm font-medium leading-none">
+                            {product.name}
+                          </div>
+                        </NavigationMenuLink>
                       </li>
                     ))}
                   </ul>

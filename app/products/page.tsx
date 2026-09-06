@@ -79,9 +79,9 @@ export default function ProductsIndex() {
                 <div className="relative aspect-[16/10] bg-slate-100 w-full overflow-hidden rounded-[2rem] mb-6">
                   <Image 
                     src={product.heroImage} 
-                    alt={product.name} 
+                    alt={`${product.name} — ${product.tagline}`} 
                     fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out" 
+                    className="object-contain p-6 group-hover:scale-105 transition-transform duration-1000 ease-out" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   <div className="absolute bottom-6 left-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">

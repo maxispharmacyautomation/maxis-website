@@ -20,7 +20,7 @@ const industries = [
       "Free up technicians and nurses to focus on clinical duties",
       "Seamlessly interface with existing Hospital Information Systems (HIS)"
     ],
-    productSlugs: ["smart-pack", "smart-pack-auto", "smart-tablet-cutter"],
+    productSlugs: ["smart-pack", "smart-pack-auto", "ap-md-model", "ap-model"],
   },
   {
     id: "retail",
@@ -32,7 +32,7 @@ const industries = [
       "Compact tabletop equipment that scales without structural renovations",
       "Build patient loyalty with easy-to-read compliance pouches"
     ],
-    productSlugs: ["smart-pack", "tabletop-adherencepackrx"],
+    productSlugs: ["smart-pack", "tabletop-adherencepackrx", "wap-model", "tablet-counter"],
   },
   {
     id: "ltc",
@@ -44,7 +44,7 @@ const industries = [
       "Reduce nurse medication pass times significantly",
       "Complete barcode verification from canister to patient tray"
     ],
-    productSlugs: ["smart-pack-auto", "adherencepackrx-108"],
+    productSlugs: ["smart-pack-auto", "adherencepackrx-108", "ap-md-model", "60mdu-prefill-station"],
   }
 ];
 

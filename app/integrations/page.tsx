@@ -61,8 +61,12 @@ const features = [
 const compatibleSystems = [
   { name: "SmartPack", type: "Unit Dose Packaging", slug: "smart-pack" },
   { name: "Adherence Pack Rx", type: "Multi-Dose Adherence", slug: "tabletop-adherencepackrx" },
+  { name: "AP Model", type: "Intelligent Tablet Packing", slug: "ap-model" },
+  { name: "AP MD Model", type: "High-Capacity Multi-Dose", slug: "ap-md-model" },
+  { name: "WAP Model", type: "Slim Cassette Packing", slug: "wap-model" },
   { name: "CAP52FS", type: "High-Speed Pouching", slug: "cap52fs" },
-  { name: "MTC30", type: "Vial Packaging", slug: "cretem-mtc-30" }
+  { name: "MTC30", type: "Vial Packaging", slug: "cretem-mtc-30" },
+  { name: "Tablet Counter", type: "Tablet Counting", slug: "tablet-counter" },
 ];
 
 export default function IntegrationsPage() {

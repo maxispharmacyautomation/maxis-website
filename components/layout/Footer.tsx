@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Container } from "@/components/ui/Container";
+import { products } from "@/lib/products";
 
 const Facebook = (props: React.ComponentProps<"svg">) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -13,7 +15,7 @@ const Linkedin = (props: React.ComponentProps<"svg">) => (
 const Youtube = (props: React.ComponentProps<"svg">) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
 );
-import { Container } from "@/components/ui/Container";
+
 
 export function Footer() {
   return (
@@ -40,36 +42,13 @@ export function Footer() {
           <div>
             <h3 className="text-slate-200 font-semibold mb-6">Products</h3>
             <ul className="flex flex-col gap-3">
-              <li>
-                <Link href="/products/smart-pack" className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
-                  Smart Pack®
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/smart-pack-auto" className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
-                  Smart Pack Auto®
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/tabletop-adherencepackrx" className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
-                  Tabletop AdherencePackRx
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/adherencepackrx-108" className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
-                  AdherencePackRx 108
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/cretem-mtc-30" className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
-                  MTC30 Vial Packaging
-                </Link>
-              </li>
-              <li>
-                <Link href="/products/cap52fs" className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
-                  CAP52Fs
-                </Link>
-              </li>
+              {products.map((product) => (
+                <li key={product.slug}>
+                  <Link href={`/products/${product.slug}`} className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
+                    {product.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
