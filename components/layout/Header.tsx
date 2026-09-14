@@ -23,21 +23,34 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-const products = [
-  { name: "Smart Pack®", href: "/products/smart-pack" },
-  { name: "Smart Pack Auto®", href: "/products/smart-pack-auto" },
-  { name: "Tabletop AdherencePackRx", href: "/products/tabletop-adherencepackrx" },
-  { name: "AdherencePackRx 108", href: "/products/adherencepackrx-108" },
-  { name: "MTC30 Vial Packaging", href: "/products/cretem-mtc-30" },
-  { name: "CAP52Fs", href: "/products/cap52fs" },
-  { name: "Tablet Counter", href: "/products/tablet-counter" },
-  { name: "AP MD Model", href: "/products/ap-md-model" },
-  { name: "AP Model", href: "/products/ap-model" },
-  { name: "WAP Model", href: "/products/wap-model" },
-  { name: "60MDU Prefill Station", href: "/products/60mdu-prefill-station" },
+const productGroups = [
+  {
+    manufacturer: "UNIDOSE",
+    tagline: "Unit-dose & adherence pouch packaging",
+    href: "/products#unidose",
+    items: [
+      { name: "Smart Pack®", description: "Tabletop unit-dose packaging", href: "/products/smart-pack" },
+      { name: "Smart Pack Auto®", description: "Automatic unit-dose packaging", href: "/products/smart-pack-auto" },
+      { name: "Tabletop AdherencePackRx", description: "Semi-automatic multi-dose", href: "/products/tabletop-adherencepackrx" },
+      { name: "AdherencePackRx 108", description: "108-canister multi-dose", href: "/products/adherencepackrx-108" },
+    ],
+  },
+  {
+    manufacturer: "CRETEM",
+    tagline: "Intelligent tablet packing systems",
+    href: "/products#cretem",
+    items: [
+      { name: "CAP(EX) Model", description: "52–92 cassettes, extendable", href: "/products/cap-ex-model" },
+      { name: "WAP Model", description: "144–224 cassettes, slim depth", href: "/products/wap-model" },
+      { name: "AP Model", description: "207–500 cassettes", href: "/products/ap-model" },
+      { name: "AP MD Model", description: "300–480 cassettes, multi-dose", href: "/products/ap-md-model" },
+      { name: "MTC Model", description: "Multi tablet counter for vials", href: "/products/mtc-model" },
+      { name: "Tablet Counter", description: "Benchtop infrared counter", href: "/products/tablet-counter" },
+    ],
+  },
 ];
 
-const buttonPrimaryStyles = "inline-flex items-center justify-center px-5 py-2.5 bg-brand-dark text-white rounded-lg font-medium hover:bg-brand-darker transition duration-200 outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2";
+const buttonPrimaryStyles = "inline-flex items-center justify-center whitespace-nowrap px-5 py-2.5 bg-brand-dark text-white rounded-lg font-medium hover:bg-brand-darker transition duration-200 outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -67,7 +80,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
@@ -75,26 +88,43 @@ export function Header() {
                   Products
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[560px] md:grid-cols-2">
-                    {products.map((product) => (
-                      <li key={product.name}>
-                        <NavigationMenuLink
-                          render={<Link href={product.href} />}
-                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-slate-50 hover:text-brand-dark focus:bg-slate-50 focus:text-brand-dark"
-                        >
-                          <div className="text-sm font-medium leading-none">
-                            {product.name}
+                  <div className="grid w-[560px] md:w-[680px] grid-cols-2 gap-6 p-5">
+                    {productGroups.map((group) => (
+                      <div key={group.manufacturer}>
+                        <div className="flex items-baseline justify-between gap-3 px-3 pb-2 mb-1 border-b border-slate-100">
+                          <div>
+                            <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-ink">{group.manufacturer}</div>
+                            <div className="text-xs text-slate-500">{group.tagline}</div>
                           </div>
+                        </div>
+                        <ul className="flex flex-col gap-0.5">
+                          {group.items.map((product) => (
+                            <li key={product.name}>
+                              <NavigationMenuLink
+                                render={<Link href={product.href} />}
+                                className="block select-none rounded-md px-3 py-2.5 leading-none no-underline outline-none transition-colors hover:bg-slate-50 hover:text-brand-dark focus:bg-slate-50 focus:text-brand-dark"
+                              >
+                                <div className="text-sm font-medium leading-none text-ink">{product.name}</div>
+                                <div className="mt-1 text-xs text-slate-500">{product.description}</div>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                        <NavigationMenuLink
+                          render={<Link href={group.href} />}
+                          className="mt-1 block px-3 py-2 text-xs font-semibold text-brand-dark hover:underline outline-none"
+                        >
+                          All {group.manufacturer} systems →
                         </NavigationMenuLink>
-                      </li>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </NavigationMenuContent>
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
 
-          <nav className="flex items-center gap-6 lg:gap-8">
+          <nav className="flex items-center gap-6 xl:gap-8">
             <Link
               href="/industries"
               className="text-slate-700 hover:text-brand-dark focus:text-brand-dark font-medium text-sm transition-colors tabular-nums focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-sm px-1"
@@ -134,7 +164,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-          <SheetTrigger className="md:hidden p-2 text-slate-700 hover:text-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-md" aria-label="Open menu">
+          <SheetTrigger className="lg:hidden p-2 text-slate-700 hover:text-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded-md" aria-label="Open menu">
             <Menu className="h-6 w-6" />
           </SheetTrigger>
           <SheetContent side="right" className="w-full sm:w-[400px] p-0 border-none">
@@ -156,22 +186,26 @@ export function Header() {
 
               <div className="flex-1 overflow-y-auto px-6 py-8">
                 <nav className="flex flex-col gap-6">
-                  <div className="space-y-4">
-                    <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Products</h3>
-                    <ul className="flex flex-col gap-4 pl-2">
-                      {products.map((product) => (
-                        <li key={product.name}>
-                          <Link
-                            href={product.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block text-lg font-medium text-slate-700 active:text-brand-dark"
-                          >
-                            {product.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {productGroups.map((group) => (
+                    <div key={group.manufacturer} className="space-y-3">
+                      <h3 className="text-xs font-bold text-slate-500 uppercase tracking-[0.16em]">
+                        {group.manufacturer} <span className="font-medium normal-case tracking-normal text-slate-400">· {group.tagline}</span>
+                      </h3>
+                      <ul className="flex flex-col gap-3 pl-2">
+                        {group.items.map((product) => (
+                          <li key={product.name}>
+                            <Link
+                              href={product.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block text-lg font-medium text-slate-700 active:text-brand-dark"
+                            >
+                              {product.name}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
 
                   <div className="h-px bg-slate-100 w-full my-2"></div>
 

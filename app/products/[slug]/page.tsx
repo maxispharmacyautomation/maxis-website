@@ -20,6 +20,8 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { products, type Product } from "@/lib/products";
+import { isCretem } from "@/lib/manufacturers";
+import { CretemProductPage } from "@/components/products/cretem/CretemProductPage";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -58,6 +60,11 @@ export default async function ProductDetail({ params }: { params: Promise<{ slug
 async function ProductDetailContent({ slug }: { slug: string }) {
   const product = products.find((p) => p.slug === slug);
   if (!product) notFound();
+
+  // CRETEM systems use the dedicated template; UNIDOSE pages keep the original layout below.
+  if (isCretem(product)) {
+    return <CretemProductPage product={product} />;
+  }
 
   const relatedProducts: Product[] = product.relatedSlugs
     ? product.relatedSlugs

@@ -5,6 +5,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Hide scrollbars on horizontally scrolling nav strips while keeping them scrollable. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* ─── Maxis Brand Token System (Tailwind v4 CSS-first config) ─────────────── */
 /* These @theme tokens generate all bg-brand-*, text-brand-*, border-brand-*   */
 /* utility classes automatically via Tailwind v4's CSS-variable engine.         */

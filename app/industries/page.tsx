@@ -44,7 +44,7 @@ const industries = [
       "Reduce nurse medication pass times significantly",
       "Complete barcode verification from canister to patient tray"
     ],
-    productSlugs: ["smart-pack-auto", "adherencepackrx-108", "ap-md-model", "60mdu-prefill-station"],
+    productSlugs: ["smart-pack-auto", "adherencepackrx-108", "ap-md-model", "ap-model"],
   }
 ];
 

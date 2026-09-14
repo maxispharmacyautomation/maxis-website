@@ -42,6 +42,17 @@ const nextConfig: NextConfig = {
         destination: "/products/smart-tablet-cutter",
         permanent: true,
       },
+      // CRETEM product slugs renamed to match the model naming
+      {
+        source: "/products/cretem-mtc-30",
+        destination: "/products/mtc-model",
+        permanent: true,
+      },
+      {
+        source: "/products/cap52fs",
+        destination: "/products/cap-ex-model",
+        permanent: true,
+      },
       // Products index
       {
         source: "/product",

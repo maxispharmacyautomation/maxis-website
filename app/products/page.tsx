@@ -1,154 +1,147 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Zap, Target, ShieldCheck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/ui/Container";
-import { products } from "@/lib/products";
+import type { Product } from "@/lib/products";
+import { manufacturerOrder, manufacturers, productsByManufacturer } from "@/lib/manufacturers";
 
 export const metadata = {
-  title: "Products | Maxis Pharmacy Automation",
-  description: "Explore our range of pharmacy automation products. Automation built for accuracy, speed, and compliance.",
+  title: "Products",
+  description:
+    "UNIDOSE unit-dose and adherence pouch packagers and CRETEM cassette-based intelligent tablet packing systems, vial counters and tablet counters — supplied and supported by Maxis across Canada and the US.",
+};
+
+const badgeClass: Record<string, string> = {
+  UNIDOSE: "bg-ink",
+  CRETEM: "bg-[#1F3A8A]",
 };
 
 export default function ProductsIndex() {
   return (
-    <main className="flex flex-col min-h-screen bg-slate-50">
-      
-      {/* PREMIUM HERO */}
-      <section className="relative pt-32 pb-24 overflow-hidden bg-ink">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-dark/30 rounded-full blur-[120px] mix-blend-screen pointer-events-none translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-teal/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
-        
-        <Container className="relative z-10">
+    <main className="flex flex-col min-h-screen bg-white">
+      {/* Header */}
+      <section className="relative overflow-hidden bg-white border-b border-slate-200">
+        <div
+          aria-hidden
+          className="absolute inset-0 pointer-events-none [background-image:radial-gradient(circle_at_1px_1px,rgba(15,23,42,0.06)_1px,transparent_0)] [background-size:28px_28px] [mask-image:linear-gradient(to_bottom,black_30%,transparent)]"
+        />
+        <Container className="relative pt-12 pb-12 lg:pt-20 lg:pb-16">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-3 text-brand-light font-bold tracking-widest uppercase text-xs mb-6">
-              <span className="w-8 h-px bg-brand-teal"></span>
-              Hardware Portfolio
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
-              Systems built for <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-light">absolute precision.</span>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-dark mb-3">Products</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink tracking-tight leading-[1.05]">
+              Packaging and counting systems for every dispensing volume
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl">
-              From modular tabletop packaging to high-volume robotic fulfillment, our systems eliminate manual intervention.
+            <p className="mt-6 text-lg lg:text-xl text-slate-600 leading-relaxed">
+              Two manufacturer ranges, one point of supply and support. Browse by manufacturer below, or jump to a product from the menu.
             </p>
           </div>
-        </Container>
-      </section>
-
-      {/* FLOAT STRIP */}
-      <section className="-mt-10 relative z-20 pb-20">
-        <Container>
-          <div className="bg-white/90 backdrop-blur-xl border border-white/40 rounded-3xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] p-6 md:p-8">
-            <div className="flex flex-col md:flex-row justify-between divide-y md:divide-y-0 md:divide-x divide-slate-100">
-              <div className="flex items-center gap-4 py-4 md:py-0 md:px-8 first:pl-0 last:pr-0">
-                <Target className="w-8 h-8 text-brand shrink-0" />
-                <div>
-                  <div className="font-bold text-ink">Zero Calibration</div>
-                  <div className="text-sm font-medium text-slate-500">Instant accuracy</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 py-4 md:py-0 md:px-8 first:pl-0 last:pr-0">
-                <Zap className="w-8 h-8 text-brand shrink-0" />
-                <div>
-                  <div className="font-bold text-ink">High Velocity</div>
-                  <div className="text-sm font-medium text-slate-500">Up to 55 pouches/min</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 py-4 md:py-0 md:px-8 first:pl-0 last:pr-0">
-                <ShieldCheck className="w-8 h-8 text-brand shrink-0" />
-                <div>
-                  <div className="font-bold text-ink">GS1 Verified</div>
-                  <div className="text-sm font-medium text-slate-500">100% compliant</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* BENTO GRID PRODUCTS */}
-      <section className="py-16 md:py-32">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
-            {products.map((product) => (
-              <Link 
-                key={product.slug}
-                href={`/products/${product.slug}`}
-                className="group flex flex-col bg-white rounded-[2.5rem] p-4 border border-slate-200 overflow-hidden hover:shadow-2xl hover:shadow-brand-dark/5 hover:border-brand-light transition-all duration-500 hover:-translate-y-2"
+          <nav aria-label="Manufacturers" className="mt-8 flex flex-wrap gap-3">
+            {manufacturerOrder.map((id) => (
+              <a
+                key={id}
+                href={`#${id.toLowerCase()}`}
+                className="inline-flex items-center gap-2 h-10 pl-1.5 pr-4 rounded-full border border-slate-200 bg-white text-sm font-medium text-slate-700 hover:border-ink hover:text-ink transition-colors"
               >
-                <div className="relative aspect-[16/10] bg-slate-100 w-full overflow-hidden rounded-[2rem] mb-6">
-                  <Image 
-                    src={product.heroImage} 
-                    alt={`${product.name} — ${product.tagline}`} 
-                    fill 
-                    className="object-contain p-6 group-hover:scale-105 transition-transform duration-1000 ease-out" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute bottom-6 left-6 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    <span className="px-4 py-2 bg-white/20 backdrop-blur-md rounded-full text-white font-bold tracking-wider text-xs uppercase border border-white/30">
-                      Explore Technical Specs
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="flex flex-col flex-1 px-4 md:px-6 pb-6">
-                  <div className="text-brand-dark font-bold uppercase tracking-widest text-[10px] mb-3">
-                    {product.tagline}
-                  </div>
-                  <h2 className="text-3xl font-bold text-ink mb-4 group-hover:text-brand-dark transition-colors">
-                    {product.name}
-                  </h2>
-                  <p className="text-slate-600 mb-8 flex-1 text-lg font-medium leading-relaxed">
-                    {product.description}
-                  </p>
-                  
-                  <div className="grid grid-cols-2 gap-y-6 gap-x-4 mb-10 bg-slate-50 p-6 rounded-2xl border border-slate-100 group-hover:bg-brand-light/20 transition-colors">
-                    {product.specs.slice(0, 4).map((spec, i) => (
-                      <div key={i}>
-                        <span className="block text-slate-400 font-bold text-[10px] uppercase tracking-wider mb-1">{spec.label}</span>
-                        <span className="font-bold text-ink text-sm leading-tight">{spec.value}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="inline-flex items-center text-brand-dark font-bold mt-auto group-hover:translate-x-2 transition-transform text-lg">
-                    View product details <ArrowRight className="w-5 h-5 ml-2" />
-                  </div>
-                </div>
-              </Link>
+                <span className={`inline-flex h-7 px-2 items-center rounded-full text-white text-[11px] font-bold tracking-wider ${badgeClass[id]}`}>{id}</span>
+                {manufacturers[id].tagline}
+              </a>
             ))}
-          </div>
+          </nav>
         </Container>
       </section>
 
-      {/* IMMERSIVE BOTTOM CTA */}
-      <section className="bg-ink py-24 pb-32 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://transparenttextures.com/patterns/cubes.png')] opacity-[0.05] mix-blend-overlay"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl bg-brand-dark/20 blur-[150px] rounded-full mix-blend-screen pointer-events-none"></div>
+      {manufacturerOrder.map((id, idx) => {
+        const info = manufacturers[id];
+        const list = productsByManufacturer(id);
+        return (
+          <section
+            key={id}
+            id={id.toLowerCase()}
+            className={`scroll-mt-24 py-16 lg:py-24 ${idx % 2 === 1 ? "bg-slate-50 border-y border-slate-200" : "bg-white"}`}
+          >
+            <Container>
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+                <div className="max-w-2xl">
+                  <span className={`inline-flex h-7 px-2.5 items-center rounded-md text-white text-xs font-bold tracking-wider ${badgeClass[id]}`}>{info.name}</span>
+                  <h2 className="mt-4 text-3xl md:text-4xl font-bold text-ink tracking-tight leading-tight">{info.tagline}</h2>
+                  <p className="mt-3 text-slate-600 leading-relaxed">{info.description}</p>
+                </div>
+                {info.logo && (
+                  <Image src={info.logo.src} alt={info.logo.alt} width={info.logo.width} height={info.logo.height} className="hidden md:block w-36 h-auto shrink-0" />
+                )}
+              </div>
 
-        <Container className="relative z-10 text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-8">
-            Not sure which system is right for you?
-          </h2>
-          <p className="text-xl md:text-2xl text-slate-300 font-light mb-12 max-w-2xl mx-auto leading-relaxed">
-            Talk to our engineering team to get a detailed workflow analysis and precise ROI calculation for your facility.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Link
-              href="/demo"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold text-ink bg-white hover:bg-brand-light rounded-full transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] hover:-translate-y-1"
-            >
-              Talk to sales
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-10 h-16 text-lg font-bold text-white bg-white/10 hover:bg-white/15 backdrop-blur-md rounded-full transition-all duration-300 border border-white/20 hover:border-white/40"
-            >
-              Contact us
-            </Link>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                {list.map((product) => (
+                  <ProductCard key={product.slug} product={product} />
+                ))}
+              </div>
+            </Container>
+          </section>
+        );
+      })}
+
+      {/* CTA */}
+      <section className="py-20 lg:py-28 bg-ink text-white">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-light mb-3">Next step</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">Not sure which system is right for you?</h2>
+              <p className="mt-5 text-lg text-slate-300 leading-relaxed max-w-2xl">
+                Tell us your dispensing volume, packaging format and available floor space. We&apos;ll recommend a configuration and arrange a demonstration.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-3">
+              <Link href="/demo" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-white text-ink text-sm font-semibold hover:bg-brand-light transition-colors">
+                Request a demo <ArrowRight className="w-4 h-4" aria-hidden />
+              </Link>
+              <Link href="/contact" className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg border border-white/25 text-white text-sm font-semibold hover:bg-white/10 transition-colors">
+                Contact sales
+              </Link>
+            </div>
           </div>
         </Container>
       </section>
     </main>
+  );
+}
+
+function ProductCard({ product }: { product: Product }) {
+  const stats = product.heroStats?.slice(0, 3) ?? product.specs.slice(0, 3).map((s) => ({ value: s.value, label: s.label }));
+  return (
+    <Link
+      href={`/products/${product.slug}`}
+      className="group flex flex-col rounded-2xl border border-slate-200 bg-white overflow-hidden hover:border-slate-300 hover:shadow-xl transition-all"
+    >
+      <div className={`relative aspect-[4/3] overflow-hidden ${product.heroImageFit === "cover" ? "bg-white border-b border-slate-100" : "bg-gradient-to-b from-slate-50 to-slate-100"}`}>
+        <Image
+          src={product.heroImage}
+          alt={`${product.name} — ${product.tagline}`}
+          fill
+          sizes="(min-width: 1280px) 30vw, (min-width: 768px) 50vw, 100vw"
+          className="object-contain p-6 group-hover:scale-[1.04] transition-transform duration-700"
+        />
+      </div>
+      <div className="p-6 flex flex-col flex-1">
+        {product.category && <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500">{product.category}</span>}
+        <h3 className="mt-1 text-xl font-semibold text-ink group-hover:text-brand-dark transition-colors">{product.name}</h3>
+        <p className="mt-1 text-sm text-brand-dark font-medium">{product.tagline}</p>
+        <p className="mt-3 text-sm text-slate-600 leading-relaxed line-clamp-3">{product.description}</p>
+
+        <dl className="mt-5 grid grid-cols-3 gap-3 border-t border-slate-100 pt-4">
+          {stats.map((s) => (
+            <div key={s.label} className="min-w-0">
+              <dd className="text-sm font-bold text-ink tabular-nums truncate">{s.value}</dd>
+              <dt className="text-[11px] text-slate-500 truncate">{s.label}</dt>
+            </div>
+          ))}
+        </dl>
+
+        <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-dark">
+          View system <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" aria-hidden />
+        </span>
+      </div>
+    </Link>
   );
 }

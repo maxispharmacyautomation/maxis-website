@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
-import { products } from "@/lib/products";
+import { manufacturerOrder, manufacturers, productsByManufacturer } from "@/lib/manufacturers";
 
 const Facebook = (props: React.ComponentProps<"svg">) => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -21,10 +21,10 @@ export function Footer() {
   return (
     <footer className="bg-ink text-slate-400">
       <Container className="py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
           
           {/* Column 1 — Brand block */}
-          <div className="flex flex-col gap-6 lg:pr-4">
+          <div className="flex flex-col gap-6 lg:pr-4 lg:col-span-1">
             <Link href="/" aria-label="Maxis Pharmacy Automation home" className="flex items-center gap-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm w-fit group">
               <Image src="/brand/maxis-logo-footer.png" alt="Maxis Logo" width={240} height={80} className="h-8 md:h-10 w-auto object-contain brightness-[1.1]" />
             </Link>
@@ -38,19 +38,22 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2 — Products */}
-          <div>
-            <h3 className="text-slate-200 font-semibold mb-6">Products</h3>
-            <ul className="flex flex-col gap-3">
-              {products.map((product) => (
-                <li key={product.slug}>
-                  <Link href={`/products/${product.slug}`} className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
-                    {product.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Columns 2–3 — Products by manufacturer */}
+          {manufacturerOrder.map((id) => (
+            <div key={id}>
+              <h3 className="text-slate-200 font-semibold mb-1">{manufacturers[id].name}</h3>
+              <p className="text-xs text-slate-500 mb-5">{manufacturers[id].tagline}</p>
+              <ul className="flex flex-col gap-3">
+                {productsByManufacturer(id).map((product) => (
+                  <li key={product.slug}>
+                    <Link href={`/products/${product.slug}`} className="text-sm hover:text-[#3DD4E6] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3DD4E6] rounded-sm px-1 -ml-1">
+                      {product.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
           {/* Column 3 — Company */}
           <div>
