@@ -558,8 +558,10 @@ export const cretemProducts: Product[] = [
     name: "MTC Model",
     seriesName: "MTC-30 Multi Tablet Counter",
     tagline: "Semi-Automatic Vial Packaging · Multi Tablet Counter",
-    heroImage: `${IMG}/mtc-30.webp`,
-    heroCaption: "MTC-30 with optional touch panel — components labelled",
+    heroImage: `${IMG}/mtc-30-unit.webp`,
+    heroImageFit: "cover",
+    heroCaption: "MTC-30 with optional touch panel",
+    anatomyImage: `${IMG}/mtc-30.webp`,
     demoAvailable: true,
     description:
       "The CRETEM MTC-30 counts multiple prescriptions into cups or bottles at the same time. Thirty canisters dispense at up to 290 pills per minute — 5 medications × 90 fills (450 pills) in about 2.25 minutes — and the unit extends to 90 canisters with two extender units, all under one software instance. Orders arrive from your OCS, HIS or PMS, and each completed bottle label is barcode-verified on the touch panel. A demonstration video is available.",
@@ -586,10 +588,15 @@ export const cretemProducts: Product[] = [
       { title: "Barcode verification", description: "Scan the completed bottle label (order number) for verification on the touch panel." },
     ],
     gallery: [
-      platformImages.canisters,
+      {
+        src: `${IMG}/mtc-30-lineup.webp`,
+        alt: "MTC-30 with one or two extender units, labelled 30, 60 and 90 canisters",
+        caption: "Extension path — 30, 60 or 90 canisters under one software instance",
+        fit: "cover",
+      },
     ],
     modules: [
-      { name: "Touch panel", abbreviation: "Optional", availability: "Optional device, not included", description: "Recommended: Microsoft Surface Go 2 LTE or higher — 10.5-inch display, Windows 10 Professional, USB to RS232C communication.", image: { src: `${IMG}/mtc-30.webp`, alt: "MTC-30 with optional touch panel on an articulated arm", fit: "contain" } },
+      { name: "Touch panel", abbreviation: "Optional", availability: "Optional device, not included", description: "Recommended: Microsoft Surface Go 2 LTE or higher — 10.5-inch display, Windows 10 Professional, USB to RS232C communication.", image: { src: `${IMG}/mtc-30-unit.webp`, alt: "MTC-30 with optional touch panel on an articulated arm", fit: "contain" } },
       { name: "Barcode scanner", abbreviation: "Optional", availability: "Recommended peripheral", description: "Recommended: ZEBRA SYMBOL-DS2208 — 1D/2D and PDF417, PS/2, USB or RS232C interface, 0–38.6 cm reading distance.", image: { src: `${IMG}/mtc-barcode-scanner.png`, alt: "Handheld barcode scanner used to verify completed MTC-30 bottle labels", fit: "contain" } },
       { name: "Label printer", abbreviation: "Optional", availability: "Recommended peripheral", description: "Recommended: ZEBRA GK420E — direct thermal, 203 dpi, USB / RS-232C / Ethernet, max 152 mm/s print speed, 19–108 mm label width.", image: { src: `${IMG}/mtc-label-printer.png`, alt: "Desktop thermal label printer for MTC-30 bottle labels", fit: "contain" } },
     ],

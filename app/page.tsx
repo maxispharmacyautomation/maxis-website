@@ -70,9 +70,9 @@ function keyFact(p: Product): string | undefined {
   return speed?.value.replace(/^Up to /, "≤ ");
 }
 
-/** Images without a transparent background (whitened photos and the MTC labelled diagram) sit on a plain white plate. */
+/** Images without a transparent background (whitened photos) sit on a plain white plate. */
 function imageStyle(p: Product): ShowcaseProduct["imageStyle"] {
-  return p.heroImageFit === "cover" || p.slug === "mtc-model" ? "plate" : "cutout";
+  return p.heroImageFit === "cover" ? "plate" : "cutout";
 }
 
 function toShowcase(p: Product): ShowcaseProduct {
@@ -433,8 +433,29 @@ export default function Home() {
                     );
                   })}
                 </ol>
-                <p className="mt-6 text-xs text-slate-400">
-                  Cassette counts from the CRETEM model tables. Also in the range: MTC-30 multi tablet counter (30–90 canisters, vials) and the benchtop Tablet Counter.
+                <Link
+                  href="/products/mtc-model"
+                  className="group mt-6 block overflow-hidden rounded-xl border border-white/10 bg-white hover:border-brand/40 transition-colors"
+                >
+                  <div className="relative aspect-[16/9] bg-white">
+                    <Image
+                      src="/products/cretem/mtc-30-lineup.webp"
+                      alt="MTC-30 with extender units for 30, 60 or 90 canisters"
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-contain p-3 sm:p-4"
+                    />
+                  </div>
+                  <div className="border-t border-slate-100 px-4 py-3.5">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-dark">Vial packaging</p>
+                    <p className="mt-1 text-sm font-semibold text-ink group-hover:text-brand-dark transition-colors">
+                      MTC-30 Multi Tablet Counter
+                    </p>
+                    <p className="mt-0.5 text-xs text-slate-500">30 → 90 canisters · cups or bottles · one software instance</p>
+                  </div>
+                </Link>
+                <p className="mt-4 text-xs text-slate-400">
+                  Cassette counts from the CRETEM model tables. Also in the range: the benchtop Tablet Counter.
                 </p>
               </div>
             </div>

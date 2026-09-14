@@ -89,6 +89,8 @@ export type Product = {
    */
   heroImageFit?: "contain" | "cover";
   heroCaption?: string;
+  /** Labelled diagram for the Components section when `heroImage` is a studio photograph. */
+  anatomyImage?: string;
   heroStats?: ProductStat[];
   valueProps?: ProductValueProp[];
   workflow?: ProductStep[];

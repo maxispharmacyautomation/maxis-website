@@ -317,9 +317,9 @@ export function CretemProductPage({ product }: { product: Product }) {
                   <p className="mt-4 text-slate-300 leading-relaxed">
                     Component overview as labelled in the CRETEM product documentation.
                   </p>
-                  <div className={`relative mt-8 rounded-2xl overflow-hidden border border-white/10 ${fit === "cover" ? "aspect-[4/5] max-w-sm bg-white" : "aspect-[4/5] max-w-sm bg-white/5"}`}>
+                  <div className={`relative mt-8 rounded-2xl overflow-hidden border border-white/10 ${product.anatomyImage || fit === "cover" ? "aspect-[4/5] max-w-sm bg-white" : "aspect-[4/5] max-w-sm bg-white/5"}`}>
                     <Image
-                      src={product.heroImage}
+                      src={product.anatomyImage ?? product.heroImage}
                       alt={`${product.name} — labelled components`}
                       fill
                       sizes="(min-width: 1024px) 30vw, 80vw"
